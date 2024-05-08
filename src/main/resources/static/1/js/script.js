@@ -8,7 +8,73 @@ $(document).ready(function () {
         }
     });
 });
-
+function toggleChangePasswordForm() {
+    var form = document.getElementById("changePasswordForm");
+    if (form.style.display === "none") {
+        form.style.display = "block";
+    } else {
+        form.style.display = "none";
+    }
+}
+function checkViolationStatus() {
+    // Gửi yêu cầu AJAX đến endpoint trên máy chủ
+    $.ajax({
+        url: "/endpoint/check_violation_status",
+        type: "GET",
+        success: function(response) {
+            // Xử lý phản hồi từ máy chủ và hiển thị dữ liệu trạng thái vi phạm lên trang web
+            if (response.locked) {
+                $('#violationStatus').html('<p>Trạng thái: Đã bị khoá</p>');
+            } else {
+                $('#violationStatus').html('<p>Trạng thái: Không bị khoá</p>');
+            }
+        },
+        error: function(xhr, status, error) {
+            // Xử lý lỗi nếu có
+            console.error("Error:", error);
+        }
+    });
+}
+function checkReservation() {
+    // Gửi yêu cầu AJAX đến endpoint trên máy chủ
+    $.ajax({
+        url: "/endpoint/check_reservation",
+        type: "GET",
+        success: function(response) {
+            // Xử lý phản hồi từ máy chủ và hiển thị dữ liệu đặt chỗ thiết bị lên trang web
+            var tableHTML = '<table><tr><th>Mã thiết bị</th><th>Tên thiết bị</th></tr>';
+            response.forEach(function(item) {
+                tableHTML += '<tr><td>' + item.MaTB + '</td><td>' + item.TenTB + '</td></tr>';
+            });
+            tableHTML += '</table>';
+            $('#reservationTable').html(tableHTML);
+        },
+        error: function(xhr, status, error) {
+            // Xử lý lỗi nếu có
+            console.error("Error:", error);
+        }
+    });
+}
+function checkBorrowedDevices() {
+    // Gửi yêu cầu AJAX đến endpoint trên máy chủ
+    $.ajax({
+        url: "/endpoint/check_borrowed_devices",
+        type: "GET",
+        success: function(response) {
+            // Xử lý phản hồi từ máy chủ và hiển thị thông tin về các thiết bị đang mượn lên trang web
+            var tableHTML = '<table><tr><th>Mã thiết bị</th><th>Tên thiết bị</th></tr>';
+            response.forEach(function(item) {
+                tableHTML += '<tr><td>' + item.deviceID + '</td><td>' + item.deviceName + '</td></tr>';
+            });
+            tableHTML += '</table>';
+            $('#borrowedDevicesTable').html(tableHTML);
+        },
+        error: function(xhr, status, error) {
+            // Xử lý lỗi nếu có
+            console.error("Error:", error);
+        }
+    });
+}
 function clearSearch() {
     window.location = "/thanhvien";
 }
@@ -42,4 +108,141 @@ $(document).ready(function() {
             }
         });
     });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const tableRows = document.querySelectorAll("#dataTable tbody tr");
+    const rowsPerPage = 10;
+    let currentPage = 0;
+    const totalPages = Math.ceil(tableRows.length / rowsPerPage);
+    const muonForm = document.getElementById('muonForm');
+    const muonFormContent = document.getElementById('muonFormContent');
+    const checkboxes = document.querySelectorAll('#dataTable tbody tr td input[type="checkbox"]');
+    const muonButton = document.getElementById('muonButton');
+    const pageNumbersContainer = document.getElementById('pageNumbers');
+    const maThietBiMuonInput = document.getElementById('maThietBiMuon');
+    const closeFormButton = document.getElementById('closeFormButton');
+
+    closeFormButton.addEventListener('click', function () {
+        hideMuonForm();
+    });
+    function showPage(page) {
+        const startIndex = page * rowsPerPage;
+        const endIndex = Math.min(startIndex + rowsPerPage, tableRows.length);
+
+        for (let i = 0; i < tableRows.length; i++) {
+            if (i >= startIndex && i < endIndex) {
+                tableRows[i].style.display = "table-row";
+            } else {
+                tableRows[i].style.display = "none";
+            }
+        }
+    }
+
+    function updatePageNumbers() {
+        pageNumbersContainer.innerHTML = '';
+        for (let i = 1; i <= totalPages; i++) {
+            createPageNumberButton(i);
+        }
+    }
+
+    function createPageNumberButton(pageNumber) {
+        const pageNumberButton = document.createElement('button');
+        pageNumberButton.textContent = pageNumber;
+        pageNumberButton.addEventListener('click', function () {
+            currentPage = pageNumber - 1;
+            showPage(currentPage);
+        });
+        pageNumbersContainer.appendChild(pageNumberButton);
+    }
+
+    function updateMuonButtonStatus() {
+        let checked = false;
+        checkboxes.forEach(function (checkbox) {
+            if (checkbox.checked) {
+                checked = true;
+            }
+        });
+        muonButton.disabled = !checked;
+    }
+
+    function showMuonForm() {
+        muonForm.style.display = 'block';
+    }
+
+    function hideMuonForm() {
+        muonForm.style.display = 'none';
+    }
+
+    function getSelectedThietBi() {
+        const selectedThietBi = [];
+        checkboxes.forEach(function (checkbox, index) {
+            if (checkbox.checked) {
+                const maThietBi = tableRows[index].querySelectorAll('td')[2].textContent;
+                selectedThietBi.push(maThietBi);
+            }
+        });
+        return selectedThietBi.join(', ');
+    }
+
+    function updateMaThietBiMuonInput() {
+        maThietBiMuonInput.value = getSelectedThietBi();
+    }
+
+    muonButton.addEventListener('click', function () {
+        if (muonButton.disabled === false) {
+            showMuonForm();
+            updateMaThietBiMuonInput();
+        }
+    });
+
+    // Sự kiện để ẩn form khi click ra ngoài form
+    window.addEventListener('click', function (event) {
+        if (event.target === muonForm) {
+            hideMuonForm();
+        }
+    });
+
+    showPage(currentPage);
+
+    document.getElementById("nextPage").addEventListener("click", function () {
+        if (currentPage < totalPages - 1) {
+            currentPage++;
+            showPage(currentPage);
+        }
+    });
+
+    document.getElementById("prevPage").addEventListener("click", function () {
+        if (currentPage > 0) {
+            currentPage--;
+            showPage(currentPage);
+        }
+    });
+
+    const prevButton = document.getElementById('prevPage');
+    const nextButton = document.getElementById('nextPage');
+
+    updatePageNumbers();
+    updateMuonButtonStatus();
+
+    checkboxes.forEach(function (checkbox) {
+        checkbox.addEventListener('click', function () {
+            updateMuonButtonStatus();
+            updateMaThietBiMuonInput();
+        });
+    });
+
+    prevButton.addEventListener('click', function () {
+        if (currentPage > 0) {
+            currentPage--;
+            showPage(currentPage);
+        }
+    });
+
+    nextButton.addEventListener('click', function () {
+        if (currentPage < totalPages - 1) {
+            currentPage++;
+            showPage(currentPage);
+        }
+    });
+
 });
