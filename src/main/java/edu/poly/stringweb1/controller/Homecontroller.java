@@ -8,14 +8,68 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import edu.poly.stringweb1.entity.ThanhVien;
 import edu.poly.stringweb1.entity.ThietBi;
-import edu.poly.stringweb1.service.ThanhVienService;
+
 
 
 
 @Controller
 @RequestMapping("/")
 public class Homecontroller {
-    int id = -1;
+
+    @GetMapping("/login")
+    public String LoginPage() {
+        return "login";
+    }
+    @GetMapping("/register")
+    public String registerPage() {
+        return "register";
+    }
+    @GetMapping("/Quenmatkhau")
+    public String QuenmatkhauPage() {
+        return "Quenmatkhau";
+    }
+    @GetMapping("/user")
+    public String userPage() {
+        return "user";
+    }
+    @GetMapping("/datcho")
+    public String datchoPage() {
+        return "datcho";
+    }
+    @GetMapping("/qlthanhvien")
+    public String qltvPage() {
+        return "qlthanhvien";
+    }
+    @GetMapping("/quanlytb")
+    public String qltbPage() {
+        return "quanlytb";
+    }
+    @GetMapping("/xulyvp")
+    public String xlvpPage() {
+        return "xulyvp";
+    }
+    @GetMapping("/thongke")
+    public String thongkePage() {
+        return "thongke";
+    }
+    @PostMapping("/register")
+    public String registerUser(@ModelAttribute ThanhVien thanhVien) {
+        // Xử lý logic đăng ký người dùng ở đây
+        // Sau khi đăng ký thành công, chuyển hướng về trang đăng nhập
+        return "redirect:/login";
+    }
+    @PostMapping("/login")
+    public String loginSuccess() {
+        // Xử lý logic đăng nhập thành công ở đây
+        // Sau khi đăng nhập thành công, chuyển hướng về trang "user"
+        return "redirect:/user";
+    } @PostMapping("/Quenmatkhau")
+    public String QuenmatkhauUser(@ModelAttribute ThanhVien thanhVien) {
+        // Xử lý logic đăng ký người dùng ở đây
+        // Sau khi đăng ký thành công, chuyển hướng về trang đăng nhập
+        return "redirect:/login";
+    }
+/*    int id = -1;
     @Autowired
     private ThanhVienService thanhVienService;
 
@@ -55,5 +109,5 @@ public class Homecontroller {
         return "redirect:/login";
     }
 
-
+*/
 }

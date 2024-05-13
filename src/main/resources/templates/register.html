@@ -17,34 +17,34 @@
             </div>
         </div>
         <div class="col-md-7 right-box">
-            <form action="/register" method="POST" id="register" th:object="${ThanhVien}">
+            <form action="/register" method="POST" id="register" >
                 <div class="row align-items-center">
                     <div class="header-text mb-4 text-center">
                         <h2>ĐĂNG KÝ</h2>
                     </div>
                     <div class="form-group mb-3">
-                        <input type="text" class="form-control form-control-lg bg-light fs-6" th:field="*{maTV}" name="maTV" placeholder="Mã Thành Viên">
+                        <input type="text" class="form-control form-control-lg bg-light fs-6"  placeholder="Mã Thành Viên">
 
                     </div>
                     <div class="form-group mb-3">
-                        <input type="text" class="form-control form-control-lg bg-light fs-6" th:field="*{ten}" name="ten" placeholder="Họ và tên">
+                        <input type="text" class="form-control form-control-lg bg-light fs-6"  placeholder="Họ và tên">
 
                     </div>
                     <div class="form-group mb-3">
-                        <input type="text" class="form-control form-control-lg bg-light fs-6" th:field="*{nganh}" name="nganh" placeholder="Tên Nghành">
+                        <input type="text" class="form-control form-control-lg bg-light fs-6"  placeholder="Tên Nghành">
 
                     </div>
                     <div class="form-group mb-3">
-                        <input type="text" class="form-control form-control-lg bg-light fs-6" th:field="*{khoa}" name="khoa" placeholder="Tên Khoa">
+                        <input type="text" class="form-control form-control-lg bg-light fs-6"  placeholder="Tên Khoa">
                     </div>
                     <div class="form-group mb-3">
-                        <input type="text" class="form-control form-control-lg bg-light fs-6" th:field="*{sdt}" name="sdt" placeholder="SDT">
+                        <input type="text" class="form-control form-control-lg bg-light fs-6"  placeholder="SDT">
                     </div>
                     <div class="form-group mb-3">
-                        <input type="text" class="form-control form-control-lg bg-light fs-6" th:field="*{email}" name="email" placeholder="Địa chỉ email">
+                        <input type="text" class="form-control form-control-lg bg-light fs-6"  placeholder="Địa chỉ email">
                     </div>
                     <div class="form-group mb-3">
-                        <input type="password" class="form-control form-control-lg bg-light fs-6" th:field="*{password}" id="password" name="password" placeholder="Mật khẩu">
+                        <input type="password" class="form-control form-control-lg bg-light fs-6"  id="password" name="password" placeholder="Mật khẩu">
                     </div>
                     <div class="form-group mb-3">
                         <button type="submit" id="submitBtn" class="btn btn-lg btn-primary w-100 fs-6">Đăng Ký</button>

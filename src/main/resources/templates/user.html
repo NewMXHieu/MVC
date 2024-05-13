@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/static/1/css/bootstrap.min.css">
     <script src="/static/1/js/jquery-3.7.1.min.js"></script>
     <script src="/static/1/js/bootstrap.min.js"></script>
+    <script src="/static/1/js/script.js"></script>
     <title>User Information</title>
     <!-- Link CSS stylesheets here if needed -->
     <style>
@@ -106,12 +107,46 @@
         button[type="submit"]:hover {
             background-color: #0056b3;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
 
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* CSS cho nút đóng bảng */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
-<body>
-<div class="container">
-    <div class="sidebar-container">
+<body id="page-top">
+<div id="wrapper">
+
+
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
@@ -124,17 +159,17 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="datcho.html">
+                <a class="nav-link" href="/datcho">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Trang đặt chỗ</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="user.html">
+                <a class="nav-link" href="/user">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>User</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="admin.html">
+                <a class="nav-link" href="/qlthanhvien">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Admin</span></a>
             </li>
@@ -144,12 +179,15 @@
 
             <!-- Heading -->
         </ul>
-    </div>
+
 
 <!-- HTML -->
-    <div class="content-container">
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
 
-    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
 
         <form
@@ -218,6 +256,8 @@
         </ul>
 
     </nav>
+
+    <div class="container-fluid">
     <div class="  user-info">
         <h2>User Information</h2>
         <div class="user-info">
@@ -245,33 +285,70 @@
             <p id="email">Email từ cơ sở dữ liệu</p>
         </div>
         <div class="btn-container">
-            <button class="btn" onclick="toggleChangePasswordForm()">Đổi mật khẩu</button>
-            <button class="btn" onclick="checkViolationStatus()">Xem trạng thái vi phạm</button>
-            <button class="btn" onclick="checkReservation()">Xem đặt chỗ thiết bị</button>
-            <button class="btn" onclick="checkBorrowedDevices()">Xem thiết bị đang mượn</button>
+            <button class="btn" onclick="showChangePasswordModal()">Đổi mật khẩu</button>
+            <button class="btn" onclick="showViolationStatus()">Xem trạng thái vi phạm</button>
+            <button class="btn" onclick="showBorrowedDevicesTable()">Xem hồ sơ có mượn thiê bị</button>
 
+            <div id="changePasswordModal" class="modal">
+                <div class="modal-content">
+                    <!-- Nội dung của bảng đổi mật khẩu -->
+                    <span class="close" onclick="closeChangePasswordModal()">&times;</span>
+                    <h2>Đổi mật khẩu</h2>
+                    <!-- Các trường nhập mới mật khẩu và xác nhận mật khẩu -->
+                    <input type="password" id="newPassword" placeholder="Mật khẩu mới"><br>
+                    <input type="password" id="confirmPassword" placeholder="Xác nhận mật khẩu"><br>
+                    <!-- Nút lưu hoặc đổi mật khẩu -->
+                    <button id="savePasswordBtn">Lưu mật khẩu</button>
+                </div>
+            </div>
+            <div id="violationStatusTable" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close" onclick="closeViolationTable()">&times;</span>
+                    <h2>Xử lý vi phạm</h2>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Mã thành viên</th>
+                            <th>Ngày vi phạm</th>
+                            <th>Xử lý</th>
+                        </tr>
+                        </thead>
+                        <tbody id="violationStatusTableBody">
+                        <!-- Dữ liệu của bảng sẽ được thêm vào đây -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="borrowedDevicesModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeBorrowedDevicesTable()">&times;</span>
+                    <h2>Hồ sơ mượn thiết bị</h2>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Mã thiết bị</th>
+                            <th>Tên thiết bị</th>
+                            <th>Ngày mượn</th>
+                            <th>Ngày trả</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                        </thead>
+                        <tbody id="borrowedDevicesTableBody">
+                        <!-- Dữ liệu của bảng sẽ được thêm vào đây -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <div id="violationStatus"></div>
-        <div id="reservationTable"></div>
-        <div id="borrowedDevicesTable"></div>
-        <div id="changePasswordForm">
-            <div class="form-group">
-                <label for="currentPassword">Mật khẩu hiện tại:</label>
-                <input type="password" id="currentPassword" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="newPassword">Mật khẩu mới:</label>
-                <input type="password" id="newPassword" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="confirmPassword">Xác nhận mật khẩu:</label>
-                <input type="password" id="confirmPassword" class="form-control">
-            </div>
-            <button onclick="submitPasswordChange()">Submit</button>
-        </div>
+
+
+    </div>
+</div>
+    </div>
+    </div>
     </div>
 </div>
 </div>
-
+</div>
 </body>
 </html>
