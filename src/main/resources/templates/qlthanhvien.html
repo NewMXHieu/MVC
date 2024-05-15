@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -40,30 +40,30 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="user.html">
+                <a class="nav-link" href="#" th:href="@{user}">
                     <span>User</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="datcho.html">
+                <a class="nav-link" href="#" th:href="@{datcho}">
                     <span>Trang Đặt Chỗ</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="qlthanhvien.html">
+                <a class="nav-link" href="#" th:href="@{qlthanhvien}">
                     <span>Quản Lý Thành Viên</span></a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="quanlytb.html">
+                <a class="nav-link" href="#" th:href="@{quanlytb}">
                     <span>Quản Lý Thiết Bị</span></a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="xulyvp.html">
+                <a class="nav-link" href="#" th:href="@{xulyvp}">
                     <span>Xử Lý Vi Phạm</span></a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="thongke.html">
+                <a class="nav-link" href="#" th:href="@{thongke}">
                     <span>Thống Kê</span></a>
             </li>
 
@@ -186,377 +186,50 @@
                                 <input type="file" id="excelFileInput" style="display: none;">
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th class="centered-cell">Chọn</th>
-                                            <th class="centered-cell">STT</th>
-                                            <th class="centered-cell">Mã Thành Viên</th>
-                                            <th class="centered-cell">Tên Thành Viên</th>
-                                            <th class="centered-cell">Khoa</th>
-                                            <th class="centered-cell">Ngành</th>
-                                            <th class="centered-cell">SDT</th>
-                                            <th class="centered-cell">PassWord</th>
-                                            <th class="centered-cell">Email</th>
-                                            <th class="centered-cell">Tình Trạng</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">01</td>
-                                            <td class="centered-cell">1121110001</td>
-                                            <td class="centered-cell">Phạm Thị Lan Khôi</td>
-                                            <td class="centered-cell">SP KHXH</td>
-                                            <td class="centered-cell">Địa</td>
-                                            <td class="centered-cell">0911211100</td>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr >
+                                                <th class="centered-cell">Chọn</th>
+                                                <th class="centered-cell">Mã Thành Viên</th>
+                                                <th class="centered-cell">Tên Thành Viên</th>
+                                                <th class="centered-cell">Khoa</th>
+                                                <th class="centered-cell">Ngành</th>
+                                                <th class="centered-cell">SDT</th>
+                                                <th class="centered-cell">PassWord</th>
+                                                <th class="centered-cell">Email</th>
+                                                <th class="centered-cell">Tình Trạng</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="member : ${memberList}">
+                                            <td class="centered-cell"><input id="checkbox" type="checkbox" th:value="${member.maTV}" ></td>
+                                            <td class="centered-cell" th:text="${member.maTV}"></td>
+                                            <td class="centered-cell" th:text="${member.hoTen}"></td>
+                                            <td class="centered-cell" th:text="${member.khoa}"></td>
+                                            <td class="centered-cell" th:text="${member.nganh}"></td>
+                                            <td class="centered-cell" th:text="${member.sdt}"></td>
                                             <td class="centered-cell">
                                                 <div class="password-container">
-                                                    <input type="password" class="password-input" value="1121110001" readonly>
+                                                    <input type="password" class="password-input" th:value="${member.password}" readonly>
+                                                    <!-- Displaying password for demonstration purposes, consider security implications -->
                                                     <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
                                                 </div>
                                             </td>
-                                            <td class="centered-cell">1121110001@gmail.com</td>
+                                            <td class="centered-cell" th:text="${member.email}"></td>
                                             <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
                                         </tr>
-
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">02</td>
-                                            <td class="centered-cell">1121130012</td>
-                                            <td class="centered-cell">Lê Ngọc lan</td>
-                                            <td class="centered-cell">Ngoại Ngữ</td>
-                                            <td class="centered-cell">Anh</td>
-                                            <td class="centered-cell">0911211300</td>
-                                            <td class="centered-cell">
-                                                <div class="password-container">
-                                                    <input type="password" class="password-input" value="1121130012" readonly>
-                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
-                                                </div>
-                                            </td>
-                                            <td class="centered-cell">1121130012@gmail.com</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">03</td>
-                                            <td class="centered-cell">1121100003</td>
-                                            <td class="centered-cell">Nguyễn Đắc Phương Linh</td>
-                                            <td class="centered-cell">SP KHXH</td>
-                                            <td class="centered-cell">Sử</td>
-                                            <td class="centered-cell">0911211000</td>
-                                            <td class="centered-cell">
-                                                <div class="password-container">
-                                                    <input type="password" class="password-input" value="1121100003" readonly>
-                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
-                                                </div>
-                                            </td>
-                                            <td class="centered-cell">1121100003@gmail.com</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">04</td>
-                                            <td class="centered-cell">1120380064</td>
-                                            <td class="centered-cell">Nguyễn Ngọc Quỳnh Lực</td>
-                                            <td class="centered-cell">Ngoại Ngữ</td>
-                                            <td class="centered-cell">NNA</td>
-                                            <td class="centered-cell">0911203800</td>
-                                            <td class="centered-cell">
-                                                <div class="password-container">
-                                                    <input type="password" class="password-input" value="1120380064" readonly>
-                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
-                                                </div>
-                                            </td>
-                                            <td class="centered-cell">1120380064@gmail.com</td>
-                                            <td class="centered-cell" style="color:red"><strong>Bị Khoá</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">05</td>
-                                            <td class="centered-cell">1120480015</td>
-                                            <td class="centered-cell">Trần Phạm Ngọc Ly</td>
-                                            <td class="centered-cell">Toán UD</td>
-                                            <td class="centered-cell">Toán</td>
-                                            <td class="centered-cell">0911204800</td>
-                                            <td class="centered-cell">
-                                                <div class="password-container">
-                                                    <input type="password" class="password-input" value="1120480015" readonly>
-                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
-                                                </div>
-                                            </td>
-                                            <td class="centered-cell">1120480015@gmail.com</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">06</td>
-                                            <td class="centered-cell">1122530016</td>
-                                            <td class="centered-cell">Lê Thục Ly</td>
-                                            <td class="centered-cell">QLGD</td>
-                                            <td class="centered-cell">TLH</td>
-                                            <td class="centered-cell">0911225300</td>
-                                            <td class="centered-cell">
-                                                <div class="password-container">
-                                                    <input type="password" class="password-input" value="1122530016" readonly>
-                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
-                                                </div>
-                                            </td>
-                                            <td class="centered-cell">1122530016@gmail.com</td>
-                                            <td class="centered-cell" style="color:red"><strong>Bị Khoá</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">07</td>
-                                            <td class="centered-cell">1120010007</td>
-                                            <td class="centered-cell">Nguyễn Gia Mai</td>
-                                            <td class="centered-cell">Toán UD</td>
-                                            <td class="centered-cell">Toán</td>
-                                            <td class="centered-cell">0911200100</td>
-                                            <td class="centered-cell">
-                                                <div class="password-container">
-                                                    <input type="password" class="password-input" value="1120010007" readonly>
-                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
-                                                </div>
-                                            </td>
-                                            <td class="centered-cell">1120010007@gmail.com</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">08</td>
-                                            <td class="centered-cell">1122550008</td>
-                                            <td class="centered-cell">Nguyễn Gia My</td>
-                                            <td class="centered-cell">QTKD</td>
-                                            <td class="centered-cell">QTKD</td>
-                                            <td class="centered-cell">0911225500</td>
-                                            <td class="centered-cell">
-                                                <div class="password-container">
-                                                    <input type="password" class="password-input" value="1122550008" readonly>
-                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
-                                                </div>
-                                            </td>
-                                            <td class="centered-cell">1122550008@gmail.com</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">09</td>
-                                            <td class="centered-cell">1121020009</td>
-                                            <td class="centered-cell">Bùi Đình Thái My</td>
-                                            <td class="centered-cell">SP KHTN</td>
-                                            <td class="centered-cell">Lí</td>
-                                            <td class="centered-cell">0911210200</td>
-                                            <td class="centered-cell">
-                                                <div class="password-container">
-                                                    <input type="password" class="password-input" value="1121020009" readonly>
-                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
-                                                </div>
-                                            </td>
-                                            <td class="centered-cell">1121020009@gmail.com</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">10</td>
-                                            <td class="centered-cell">1122090010</td>
-                                            <td class="centered-cell">Lê Xuân Nam</td>
-                                            <td class="centered-cell">SP KHXH</td>
-                                            <td class="centered-cell">Văn</td>
-                                            <td class="centered-cell">0911220900</td>
-                                            <td class="centered-cell">
-                                                <div class="password-container">
-                                                    <input type="password" class="password-input" value="11220900010" readonly>
-                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
-                                                </div>
-                                            </td>
-                                            <td class="centered-cell">11220900010@gmail.com</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">11</td>
-                                            <td class="centered-cell">1120410311</td>
-                                            <td class="centered-cell">Lê Việt Nga</td>
-                                            <td class="centered-cell">CNTT</td>
-                                            <td class="centered-cell">CNTT</td>
-                                            <td class="centered-cell">0911204103</td>
-                                            <td class="centered-cell">
-                                                <div class="password-container">
-                                                    <input type="password" class="password-input" value="11204110311" readonly>
-                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
-                                                </div>
-                                            </td>
-                                            <td class="centered-cell">11204110311@gmail.com</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">12</td>
-                                            <td class="centered-cell">1121100012</td>
-                                            <td class="centered-cell">Trương Hoài Nga</td>
-                                            <td class="centered-cell">SP KHXH</td>
-                                            <td class="centered-cell">Sử</td>
-                                            <td class="centered-cell">0911211000</td>
-                                            <td class="centered-cell">
-                                                <div class="password-container">
-                                                    <input type="password" class="password-input" value="11211000012" readonly>
-                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
-                                                </div>
-                                            </td>
-                                            <td class="centered-cell">11211000012@gmail.com</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">13</td>
-                                            <td class="centered-cell">1122090013</td>
-                                            <td class="centered-cell">Nguyễn Mỹ Ngân</td>
-                                            <td class="centered-cell">SP KHXH</td>
-                                            <td class="centered-cell">Văn</td>
-                                            <td class="centered-cell">0911220900</td>
-                                            <td class="centered-cell">
-                                                <div class="password-container">
-                                                    <input type="password" class="password-input" value="11220900013" readonly>
-                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
-                                                </div>
-                                            </td>
-                                            <td class="centered-cell">11220900013@gmail.com</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">14</td>
-                                            <td class="centered-cell">1120090014</td>
-                                            <td class="centered-cell">Nguyễn Thị Mỹ Ngân</td>
-                                            <td class="centered-cell">SP KHXH</td>
-                                            <td class="centered-cell">Văn</td>
-                                            <td class="centered-cell">0911200900</td>
-                                            <td class="centered-cell">
-                                                <div class="password-container">
-                                                    <input type="password" class="password-input" value="11200900014" readonly>
-                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
-                                                </div>
-                                            </td>
-                                            <td class="centered-cell">11200900014@gmail.com</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">15</td>
-                                            <td class="centered-cell">1122090015</td>
-                                            <td class="centered-cell">Nguyễn Thủy Triều Ngọc</td>
-                                            <td class="centered-cell">SP KHXH</td>
-                                            <td class="centered-cell">Văn</td>
-                                            <td class="centered-cell">0911220900</td>
-                                            <td class="centered-cell">
-                                                <div class="password-container">
-                                                    <input type="password" class="password-input" value="11220900015" readonly>
-                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
-                                                </div>
-                                            </td>
-                                            <td class="centered-cell">11220900015@gmail.com</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">16</td>
-                                            <td class="centered-cell">1120480216</td>
-                                            <td class="centered-cell">Nguyễn Trần Thái Ngọc</td>
-                                            <td class="centered-cell">Toán UD</td>
-                                            <td class="centered-cell">Toán</td>
-                                            <td class="centered-cell">0911204802</td>
-                                            <td class="centered-cell">
-                                                <div class="password-container">
-                                                    <input type="password" class="password-input" value="11204800216" readonly>
-                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
-                                                </div>
-                                            </td>
-                                            <td class="centered-cell">11204800216@gmail.com</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">17</td>
-                                            <td class="centered-cell">1120480217</td>
-                                            <td class="centered-cell">Trần Minh Phúc Ngọc</td>
-                                            <td class="centered-cell">Toán UD</td>
-                                            <td class="centered-cell">Toán</td>
-                                            <td class="centered-cell">0911204802</td>
-                                            <td class="centered-cell">
-                                                <div class="password-container">
-                                                    <input type="password" class="password-input" value="11204800217" readonly>
-                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
-                                                </div>
-                                            </td>
-                                            <td class="centered-cell">11204800217@gmail.com</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">18</td>
-                                            <td class="centered-cell">1120090018</td>
-                                            <td class="centered-cell">Trần Thị Anh Ngọc</td>
-                                            <td class="centered-cell">SP KHXH</td>
-                                            <td class="centered-cell">Văn</td>
-                                            <td class="centered-cell">0911200900</td>
-                                            <td class="centered-cell">
-                                                <div class="password-container">
-                                                    <input type="password" class="password-input" value="11200900018" readonly>
-                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
-                                                </div>
-                                            </td>
-                                            <td class="centered-cell">11200900018@gmail.com</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>
-                                            <td class="centered-cell">19</td>
-                                            <td class="centered-cell">1120020019</td>
-                                            <td class="centered-cell">Chu Phúc Ngọc</td>
-                                            <td class="centered-cell">SP KHTN</td>
-                                            <td class="centered-cell">Lí</td>
-                                            <td class="centered-cell">0911200200</td>
-                                            <td class="centered-cell">
-                                                <div class="password-container">
-                                                    <input type="password" class="password-input" value="11200200019" readonly>
-                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
-                                                </div>
-                                            </td>
-                                            <td class="centered-cell">11200200019@gmail.com</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
-                                        </tr>
-
-
-                                    </tbody>
-                                </table>                                                            
-                            </div>
+                                        </tbody>
+                                    </table>
+                                </div>
                             <div class="pagination">
                                 <button id="prevPage"><i class="fas fa-chevron-left"></i></button>
                                 <div id="pageNumbers" class="page-numbers"></div>
                                 <button id="nextPage"><i class="fas fa-chevron-right"></i></button>
                                 <button id="TvButton" class="btn btn-success" disabled>Sửa Thông Tin</button>
                                 <button id="TvButton1" class="btn btn-success">Khoá Tài Khoản</button>
-                                <button id="deleteMemberButton" class="btn btn-danger" disabled>Xoá Thành Viên</button> <!-- Chỉnh sửa ở đây -->
+                                <button id="deleteMemberButton" class="btn btn-danger" disabled onclick="deleteSelectedMembers()">Xoá Thành Viên</button> <!-- Chỉnh sửa ở đây -->
                                 <button id="TvButton2" class="btn btn-success">Mở Khoá Tài Khoản</button>
                             </div>
                             <div id="updateTvForm" style="display: none;">
@@ -594,48 +267,48 @@
                                         <label for="email">Email:</label>
                                         <input type="text" class="form-control" id="email" placeholder="Nhập email">
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Lưu</button>
+                                    <button type="submit" id="save-btn" class="btn btn-primary">Lưu</button>
                                 </form>
                             </div>
-                            <div id="addTvForm" style="display: none;">
-                                <button id="closeAddFormButton" class="btn-close">X</button>
-                                <form id="addTvFormContent">
-                                    <div class="form-group">
-                                        <label for="addMaThanhVien">Mã Thành Viên:</label>
-                                        <input type="text" class="form-control" id="addMaThanhVien" placeholder="Nhập mã thành viên">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="addHoTen">Tên Thành Viên:</label>
-                                        <input type="text" class="form-control" id="addHoTen" placeholder="Nhập họ và tên">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="addKhoa">Khoa:</label>
-                                        <input type="text" class="form-control" id="addKhoa" placeholder="Nhập khoa">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="addNganh">Ngành:</label>
-                                        <input type="text" class="form-control" id="addNganh" placeholder="Nhập ngành">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="addSdt">SDT:</label>
-                                        <input type="text" class="form-control" id="addSdt" placeholder="Nhập số điện thoại">
-                                    </div>
-                                    <label for="addPassWord">PassWord:</label>
-                                    <div class="input-group">
-                                        <input type="password" class="form-control" id="addPassWord" placeholder="Nhập mật khẩu">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button" id="toggleAddPassword">
-                                                <i class="fas fa-eye" id="addEyeIcon"></i>
-                                            </button>
+                                <div id="addTvForm" style="display: none;">
+                                    <button id="closeAddFormButton" class="btn-close">X</button>
+                                    <form id="addTvFormContent">
+                                        <div class="form-group">
+                                            <label for="addMaThanhVien">Mã Thành Viên:</label>
+                                            <input type="text" class="form-control id" id="addMaThanhVien" name="maThanhVien" placeholder="Nhập mã thành viên">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="addEmail">Email:</label>
-                                        <input type="text" class="form-control" id="addEmail" placeholder="Nhập email">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Thêm</button>
-                                </form>
-                            </div>
+                                        <div class="form-group">
+                                            <label for="addHoTen">Tên Thành Viên:</label>
+                                            <input type="text" class="form-control name" id="addHoTen" name="hoTen" placeholder="Nhập họ và tên">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="addKhoa">Khoa:</label>
+                                            <input type="text" class="form-control khoa" id="addKhoa" name="khoa" placeholder="Nhập khoa">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="addNganh">Ngành:</label>
+                                            <input type="text" class="form-control nganh" id="addNganh" name="nganh" placeholder="Nhập ngành">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="addSdt">SDT:</label>
+                                            <input type="text" class="form-control phone" id="addSdt" name="sdt" placeholder="Nhập số điện thoại">
+                                        </div>
+                                        <label for="addPassWord">PassWord:</label>
+                                        <div class="input-group">
+                                            <input type="password" class="form-control password" id="addPassWord" name="password" placeholder="Nhập mật khẩu">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="button" id="toggleAddPassword">
+                                                    <i class="fas fa-eye" id="addEyeIcon"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="addEmail">Email:</label>
+                                            <input type="text" class="form-control email" id="addEmail" name="email" placeholder="Nhập email">
+                                        </div>
+                                        <button type="button" class="btn btn-primary" id="saveButton">Thêm</button>
+                                    </form>
+                                </div>
 
                         </div>
                     </div>
@@ -702,7 +375,183 @@
     <!-- Page level custom scripts -->
     <script src="/static/1/js/demo/chart-area-demo.js"></script>
     <script src="/static/1/js/demo/chart-pie-demo.js"></script>
+    <script>
+        document.getElementById("saveButton").addEventListener("click", () => {
+            let maTV = document.querySelector(" #addMaThanhVien").value;
+            let tenTV = document.querySelector("#addHoTen").value;
+            let khoa = document.querySelector("#addKhoa").value;
+            let nganh = document.querySelector("#addNganh").value;
+            let sdt = document.querySelector("#addSdt").value;
+            let password = document.querySelector("#addPassWord").value;
+            let email = document.querySelector("#addEmail").value;
+
+            let newMemberData = {
+                maTV: maTV,
+                hoTen: tenTV,
+                khoa: khoa,
+                nganh: nganh,
+                sdt: sdt,
+                password: password,
+                email: email,
+            };
+
+            fetch("/themThanhVien", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(newMemberData),
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                alert(data.message);
+                if (data.success) {
+                    window.location.reload();
+                }
+            })
+            .catch((error) => {
+                console.log("error: " + error);
+            });
+        });
+
+
+<!--// Bắt sự kiện khi người dùng nhấn nút xóa-->
+<!--document.getElementById('deleteMemberButton').addEventListener('click', function() {-->
+<!--    // Lấy danh sách các checkbox đã được chọn-->
+<!--    var checkboxes = document.querySelectorAll('#checkbox:checked');-->
+<!--    var maTVList = [];-->
+<!--    // Lặp qua từng checkbox đã chọn để lấy mã thành viên-->
+<!--    checkboxes.forEach(function(checkbox) {-->
+<!--        // Lấy mã thành viên từ giá trị của checkbox-->
+<!--        var maTV = checkbox.parentElement.nextElementSibling.textContent.trim();-->
+<!--        // Thêm mã thành viên vào danh sách dưới dạng đối tượng JSON-->
+<!--        maTVList.push({ "maTV": maTV });-->
+<!--    });-->
+
+<!--    // Gửi yêu cầu xóa đến endpoint "/deleteMember" bằng phương thức POST-->
+<!--    fetch('/deleteMember', {-->
+<!--        method: 'POST',-->
+<!--        headers: {-->
+<!--            'Content-Type': 'application/json'-->
+<!--        },-->
+<!--        body: JSON.stringify(maTVList) // Gửi mảng đối tượng JSON-->
+<!--    })-->
+<!--    .then(response => response.json())-->
+<!--    .then(data => {-->
+<!--        // Xử lý phản hồi từ máy chủ-->
+<!--        if (data.success) {-->
+<!--            // Nếu xóa thành viên thành công, hiển thị thông báo thành công và làm mới trang-->
+<!--            alert(data.message);-->
+<!--            location.reload();-->
+<!--        } else {-->
+<!--            // Nếu xóa không thành công, hiển thị thông báo lỗi-->
+<!--            alert(data.message);-->
+<!--        }-->
+<!--    })-->
+<!--    .catch(error => {-->
+<!--        // Xử lý lỗi nếu có-->
+<!--        console.error('Error:', error);-->
+<!--    });-->
+<!--});-->
+<!--        -->
+
+var searchInput = document.querySelector("input[type='text']");
+
+searchInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') { // Kiểm tra nếu phím nhấn là phím "Enter"
+        event.preventDefault();
+
+        var searchValue = searchInput.value;
+
+        fetch(`/searchMember?tenTV=${searchValue}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            // Xử lý dữ liệu tìm kiếm và hiển thị kết quả
+            document.getElementById('memberList').innerHTML = ''; // Xóa nội dung cũ
+
+            data.forEach(function (member) {
+                var tr = document.createElement('tr');
+                tr.innerHTML = `
+                  <td class="centered-cell"><input id="checkbox" type="checkbox" th:value="${member.maTV}" ></td>
+                                            <td class="centered-cell" th:text="${member.maTV}"></td>
+                                            <td class="centered-cell" th:text="${member.hoTen}"></td>
+                                            <td class="centered-cell" th:text="${member.khoa}"></td>
+                                            <td class="centered-cell" th:text="${member.nganh}"></td>
+                                            <td class="centered-cell" th:text="${member.sdt}"></td>
+                                            <td class="centered-cell">
+                                                <div class="password-container">
+                                                    <input type="password" class="password-input" th:value="${member.password}" readonly>
+                                                    <!-- Displaying password for demonstration purposes, consider security implications -->
+                                                    <span class="toggle-password" onclick="togglePasswordVisibility(event)">👁️</span>
+                                                </div>
+                                            </td>
+                                            <td class="centered-cell" th:text="${member.email}"></td>
+                                            <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
+                `;
+                document.getElementById('memberList').appendChild(tr);
+            });
+        })
+        .catch(error => {
+            console.log("error: " + error);
+        });
+    }
+});
+
+    </script>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        function deleteSelectedMembers() {
+            var maTVList = [];
+            document.querySelectorAll('input[type="checkbox"]:checked').forEach(function(checkbox) {
+                maTVList.push(checkbox.value);
+            });
+
+            if (maTVList.length === 0) {
+                alert('Vui lòng chọn ít nhất một thành viên để xóa.');
+                return;
+            }
+
+            var confirmation = confirm('Bạn có chắc chắn muốn xóa các thành viên đã chọn?');
+            if (confirmation) {
+                var requestData = { "maTVList": maTVList };
+
+                fetch('/deleteMember', {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestData)
+                })
+                .then(function(response) {
+                    if (response.status === 200) {
+                        return response.json();
+                    } else {
+                        throw new Error('Xóa thành viên thất bại.');
+                    }
+                })
+                .then(function(data) {
+                    if (data.success) {
+                        alert('Xóa thành viên thành công.');
+                        // Cập nhật danh sách thành viên sau khi xóa thành công
+                    } else {
+                        alert('Xóa thành viên thất bại: ' + data.message);
+                    }
+                })
+                .catch(function(error) {
+                    console.error('Lỗi xảy ra khi xóa thành viên:', error);
+                    alert('Lỗi xảy ra khi xóa thành viên.');
+                });
+            }
+        }
+        /*]]>*/
+    </script>
+
 
 </body>
-
 </html>

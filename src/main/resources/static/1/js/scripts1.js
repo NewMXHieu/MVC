@@ -161,13 +161,13 @@ document.getElementById('TvButton').addEventListener('click', function () {
         const cells = selectedRow.querySelectorAll('td');
 
         // Lấy ra các giá trị từ các ô dữ liệu
-        const maThanhVien = cells[2].textContent;
-        const tenThanhVien = cells[3].textContent;
-        const khoa = cells[4].textContent;
-        const nganh = cells[5].textContent;
-        const sdt = cells[6].textContent;
-        const passWord = cells[7].textContent;
-        const email = cells[8].textContent;
+        const maThanhVien = cells[1].textContent;
+        const tenThanhVien = cells[2].textContent;
+        const khoa = cells[3].textContent;
+        const nganh = cells[4].textContent;
+        const sdt = cells[5].textContent;
+        const passWord = cells[6].textContent;
+        const email = cells[7].textContent;
 
         // Điền các giá trị vào các trường trong form chỉnh sửa
         document.getElementById('maThanhVien').value = maThanhVien;
@@ -283,3 +283,59 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initial check
     checkCheckboxes();
 });
+
+// edit member
+    document.getElementById('save-btn').addEventListener('click', function(event) {
+    // Ngăn chặn hành vi mặc định của nút (chẳng hạn khi nhấn nút trang web không được tải lại)
+    event.preventDefault();
+
+    // Lấy dữ liệu từ các trường input trong form
+    var maTV = document.getElementById('maThanhVien').value;
+    var tenTV = document.getElementById('hoTen').value;
+    var khoa = document.getElementById('khoa').value;
+    var nganh = document.getElementById('nganh').value;
+    var sdt = document.getElementById('sdt').value;
+    var password = document.getElementById('passWord').value;
+    var email = document.getElementById('email').value;
+
+    // Tạo một đối tượng chứa dữ liệu để gửi đi
+    var memberData = {
+        maTV: maTV,
+        tenTV: tenTV,
+        khoa: khoa,
+        nganh: nganh,
+        sdt: sdt,
+        password: password,
+        email: email
+    };
+
+    // Gửi dữ liệu đến endpoint "/editMember" bằng phương thức POST
+    fetch('/editMember', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(memberData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Xử lý phản hồi từ máy chủ
+       // Xử lý phản hồi từ máy chủ
+       if (data.success) {
+           // Nếu cập nhật thành công, hiển thị thông báo thành công và ẩn form chỉnh sửa
+           alert(data.message);
+           hideEditForm();
+           // Reload lại trang sau khi đã cập nhật thành công
+           location.reload();
+       } else {
+           // Nếu cập nhật không thành công, hiển thị thông báo lỗi
+           alert(data.message);
+       }
+    })
+    .catch(error => {
+        // Xử lý lỗi nếu có
+        console.error('Error:', error);
+    });
+});
+
+

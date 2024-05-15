@@ -1,11 +1,9 @@
 package edu.poly.stringweb1.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Data
@@ -13,36 +11,43 @@ import java.util.List;
 @Table(name = "thanhvien")
 public class ThanhVien {
     @Id
-    @Column(name = "MaTV", unique = true)
-    @NotNull(message = "Không được để trống Id")
-    private Integer maTV;
+    @Column(name = "MaTV")
+    private int maTV;
 
-    @NotBlank(message = "Không được để trống Tên")
-    @NotNull
-    @Column(name = "Ten")
-    private String ten;
+    @Column(name = "ho_ten")
+    private String hoTen;
 
-    @NotBlank(message = "Không được để trống Khoa")
     @Column(name = "Khoa")
     private String khoa;
 
-    @NotBlank(message = "Không được để trống Nganh")
     @Column(name = "Nganh")
     private String nganh;
 
-    @NotBlank(message = "Không được để trống sdt")
     @Column(name = "SDT")
     private String sdt;
 
-    @NotBlank(message = "Không được để trống password")
     @Column(name = "password")
     private String password;
 
-    @NotBlank(message = "Không được để trống email")
-    @Email(message = "Không đúng định dạng")
-    @Column(name = "email", unique = true)
+    @Column(name = "email")
     private String email;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "thanhVien")
-    private List<ThongTinSD> listTTSD;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "thanhVien")
+    private List<ThongTinSD> thongTinSD;
+
+    // Default constructor
+    public ThanhVien() {
+    }
+
+    // Parameterized constructor
+    public ThanhVien(int maTV, String hoTen, String khoa, String nganh, String sdt, String password, String email) {
+        this.maTV = maTV;
+        this.hoTen = hoTen;
+        this.khoa = khoa;
+        this.nganh = nganh;
+        this.sdt = sdt;
+        this.password = password;
+        this.email = email;
+    }
 }
+
