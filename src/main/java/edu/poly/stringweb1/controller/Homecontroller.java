@@ -127,27 +127,35 @@ public class Homecontroller {
 
     @PostMapping("/deleteMember")
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> deleteMemberById(@RequestBody Map<String, String> memberData) {
+    public ResponseEntity<Map<String, Object>> deleteMembersByIds(@RequestBody List<Integer> maTVList) {
         Map<String, Object> response = new HashMap<>();
 
         try {
-            int maTV = Integer.parseInt(memberData.get("maTV"));
-
-            ThanhVien thanhVien = thanhVienRepository.findByMaTV(maTV);
-            if (thanhVien == null) {
+            if (maTVList == null || maTVList.isEmpty()) {
                 response.put("success", false);
-                response.put("message", "Không tồn tại thành viên này");
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+                response.put("message", "Danh sách mã thành viên rỗng hoặc không tồn tại");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
             }
 
-            thanhVienRepository.delete(thanhVien);
-            response.put("success", true);
-            response.put("message", "Xóa thành công");
+            List<String> failedToDelete = new ArrayList<>();
+            for (Integer maTV : maTVList) {
+                ThanhVien thanhVien = thanhVienRepository.findByMaTV(maTV);
+                if (thanhVien == null) {
+                    failedToDelete.add(maTV.toString());
+                } else {
+                    thanhVienRepository.delete(thanhVien);
+                }
+            }
+
+            if (failedToDelete.isEmpty()) {
+                response.put("success", true);
+                response.put("message", "Xóa thành công tất cả thành viên được chọn");
+            } else {
+                response.put("success", false);
+                response.put("message", "Không thể xóa các thành viên có mã: " + String.join(", ", failedToDelete));
+            }
+
             return ResponseEntity.ok(response);
-        } catch (NumberFormatException e) {
-            response.put("success", false);
-            response.put("message", "Dữ liệu mã thành viên không hợp lệ");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         } catch (Exception e) {
             response.put("success", false);
             response.put("message", "Xóa thất bại");
