@@ -58,7 +58,7 @@
 
 #deleteMemberButton {
     position: absolute;
-    right: 640px;
+    right: 20%;
     bottom: 10px;
     background-color: red;
     color: white;

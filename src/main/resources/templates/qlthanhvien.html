@@ -200,7 +200,6 @@
                                     <th class="centered-cell">SDT</th>
                                     <th class="centered-cell">PassWord</th>
                                     <th class="centered-cell">Email</th>
-                                    <th class="centered-cell">Tình Trạng</th>
                                 </tr>
                                 </thead>
                                 <tbody id="memberList">
@@ -219,7 +218,6 @@
                                         </div>
                                     </td>
                                     <td class="centered-cell" th:text="${member.email}"></td>
-                                    <td class="centered-cell" style="color:green"><strong>Hoạt Động</strong></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -229,9 +227,7 @@
                             <div id="pageNumbers" class="page-numbers"></div>
                             <button id="nextPage"><i class="fas fa-chevron-right"></i></button>
                             <button id="TvButton" class="btn btn-success" disabled>Sửa Thông Tin</button>
-                            <button id="TvButton1" class="btn btn-success">Khoá Tài Khoản</button>
                             <button id="deleteMemberButton" class="btn btn-danger" disabled onclick="deleteSelectedMembers()">Xoá Thành Viên</button> <!-- Chỉnh sửa ở đây -->
-                            <button id="TvButton2" class="btn btn-success">Mở Khoá Tài Khoản</button>
                         </div>
                         <div id="updateTvForm" style="display: none;">
                             <button id="closeFormButton" class="btn-close">X</button>
