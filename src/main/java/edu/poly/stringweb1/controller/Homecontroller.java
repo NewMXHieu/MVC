@@ -2,6 +2,8 @@ package edu.poly.stringweb1.controller;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import edu.poly.stringweb1.repository.ThanhVienRepository;
+import edu.poly.stringweb1.utilities.ExcelUtil;
+import edu.poly.stringweb1.utilities.thanhVienExcelUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import edu.poly.stringweb1.entity.ThanhVien;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.math.BigInteger;
 import java.util.*;
 
@@ -214,33 +219,70 @@ public class Homecontroller {
         return map;
     }
 
-    @PostMapping("/getMember")
+
+    @PostMapping("/searchMember")
     @ResponseBody
     @JsonIgnoreProperties
-    public ThanhVien getMemberById(@RequestBody Map<String, String> requestData) {
-        int maTV = Integer.parseInt((String) requestData.get("maTV"));
-        ThanhVien thanhvien = thanhVienRepository.findByMaTV(maTV);
-        return thanhvien;
-    }
-
-    @GetMapping("/searchMember")
-    @ResponseBody
-    public List<ThanhVien> searchMemberByName(@RequestParam String tenTV) {
-        // Khởi tạo danh sách để lưu trữ kết quả tìm kiếm
-        List<ThanhVien> resultList = new ArrayList<>();
-
-        // Tìm kiếm thành viên theo tên (hoặc phần của tên)
-        List<ThanhVien> matchingMembers = (List<ThanhVien>) thanhVienRepository.findByHoTenContainingIgnoreCase(tenTV);
-
-        // Kiểm tra xem matchingMembers có null hay không
-        if (matchingMembers != null) {
-            // Thêm các thành viên tìm được vào danh sách kết quả
-            resultList.addAll(matchingMembers);
+    public List<ThanhVien> searchDevice(@RequestBody Map<String, String> searchData) {
+        String searchValue = searchData.get("searchValue");
+        if (searchValue.isEmpty()) {
+            return thanhVienRepository.findAll();
         }
-
-        // Trả về danh sách kết quả
-        return resultList;
+        List<ThanhVien> searchResult = thanhVienRepository.findByKeyword(searchValue);
+        return searchResult;
     }
+
+    @PostMapping("/thanhVienExcel")
+    @ResponseBody
+    public Map<String, Object> fileExcelUpload(@RequestParam("excelBtn") MultipartFile file) {
+        Map<String, Object> map = new HashMap<>();
+        if (!file.isEmpty()) {
+            try {
+                File convertFile = new File(file.getOriginalFilename());
+                convertFile.createNewFile();
+                try (FileOutputStream fos = new FileOutputStream(convertFile)) {
+                    fos.write(file.getBytes());
+                }
+
+                List<List<String>> data = ExcelUtil.readExcel(convertFile.getAbsolutePath(), 0);
+                List<ThanhVien> thanhvienList = thanhVienExcelUtil.convertToThanhVienList(data);
+
+                for (ThanhVien thanhvien : thanhvienList) {
+                    Optional<ThanhVien> existingThanhVien = thanhVienRepository.findById(thanhvien.getMaTV());
+                    if (existingThanhVien.isPresent()) {
+                        ThanhVien existing = existingThanhVien.get();
+                        // Update existing record with new values
+                        existing.setHoTen(thanhvien.getHoTen());
+                        existing.setKhoa(thanhvien.getKhoa());
+                        existing.setNganh(thanhvien.getNganh());
+                        existing.setSdt(thanhvien.getSdt());
+                        existing.setPassword(thanhvien.getPassword());
+                        existing.setEmail(thanhvien.getEmail());
+                        thanhVienRepository.save(existing);
+                    } else {
+                        // Save new record
+                        thanhVienRepository.save(thanhvien);
+                    }
+                }
+
+                convertFile.delete();
+
+                map.put("success", true);
+                map.put("message", "File uploaded and processed successfully");
+
+                return map;
+            } catch (Exception e) {
+                e.printStackTrace();
+                map.put("success", false);
+                map.put("message", "An error occurred while processing the file: " + e.getMessage());
+                return map;
+            }
+        }
+        map.put("success", false);
+        map.put("message", "No file uploaded");
+        return map;
+    }
+
 
 
     @GetMapping("/quanlytb")
