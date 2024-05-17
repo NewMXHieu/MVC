@@ -12,417 +12,411 @@
     <title>Đặt Chỗ</title>
 
     <!-- Custom fonts for this template-->
-    <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/1/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
-            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-            rel="stylesheet">
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/style2.css">
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <script src="../static/js/jquery-3.7.1.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
+    <link href="/static/1/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/static/1/css/style4.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
-<!-- Page Wrapper -->
-<div id="wrapper">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div class="sidebar-brand-text mx-3">Dashboard</div>
-        </a>
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="datcho.html">
+                <div class="sidebar-brand-text mx-3">Dashboard</div>
+            </a>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" href="datcho.html">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Trang đặt chỗ</span></a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="user.html">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>User</span></a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="admin.html">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Admin</span></a>
-        </li>
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="datcho.html">
+                    <span>Trang đặt chỗ</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="user.html">
+                    <span>User</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="qlthanhvien.html">
+                    <span>Admin</span></a>
+            </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-        <!-- Heading -->
-    </ul>
-    <!-- End of Sidebar -->
+            <!-- Heading -->
+        </ul>
+        <!-- End of Sidebar -->
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
 
-        <!-- Main Content -->
-        <div id="content">
+            <!-- Main Content -->
+            <div id="content">
 
-            <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-                <!-- Sidebar Toggle (Topbar) -->
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <i class="fa fa-bars"></i>
-                </button>
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
 
-                <!-- Topbar Search -->
-                <form
+                    <!-- Topbar Search -->
+                    <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Nhập tên (mã) thiết bị..."
-                               aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Nhập tên (mã) thiết bị..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
 
-                <!-- Topbar Navbar -->
-                <ul class="navbar-nav ml-auto">
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
 
-                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                    <li class="nav-item dropdown no-arrow d-sm-none">
-                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <!-- Dropdown - Messages -->
-                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                             aria-labelledby="searchDropdown">
-                            <form class="form-inline mr-auto w-100 navbar-search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small"
-                                           placeholder="Nhập tên (mã) thiết bị..." aria-label="Search"
-                                           aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Nhập tên (mã) thiết bị..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Phạm Minh</span>
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- Content Row -->
+                    <!-- Area Chart -->
+                    <!-- Card Header - Dropdown -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">ĐẶT CHỖ MƯỢN THIẾT BỊ</h6>
                         </div>
-                    </li>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th class="centered-cell">Chọn</th>
+                                            <th class="centered-cell">STT</th>
+                                            <th class="centered-cell">Mã Thiết Bị</th>
+                                            <th class="centered-cell">Tên Thiết Bị</th>
+                                            <th class="centered-cell">Tình Trạng</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="centered-cell"><input type="checkbox"></td>                                                
+                                            <td class="centered-cell">01</td>
+                                            <td class="centered-cell">120191</td>
+                                            <td class="centered-cell">Micro không dây 01</td>
+                                            <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
+                                        </tr>
 
-                    <div class="topbar-divider d-none d-sm-block"></div>
+                                        <tr>
+                                            <td class="centered-cell"><input type="checkbox"></td>                                                
+                                            <td class="centered-cell">02</td>
+                                            <td class="centered-cell">120192</td>
+                                            <td class="centered-cell">Micro có dây 01</td>
+                                            <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
+                                        </tr>
 
-                    <!-- Nav Item - User Information -->
-                    <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Phạm Minh</span>
-                            <img class="img-profile rounded-circle"
-                                 src="img/undraw_profile.svg">
-                        </a>
-                        <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                             aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Profile
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Settings
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Activity Log
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Logout
-                            </a>
+                                        <tr>
+                                            <td class="centered-cell"><input type="checkbox"></td>                                                
+                                            <td class="centered-cell">03</td>
+                                            <td class="centered-cell">220191</td>
+                                            <td class="centered-cell">Máy chiếu Panasonic</td>
+                                            <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="centered-cell"><input type="checkbox" disabled></td>                                                
+                                            <td class="centered-cell">04</td>
+                                            <td class="centered-cell">120203</td>
+                                            <td class="centered-cell">Micro không dây 02</td>
+                                            <td class="centered-cell" style="color:RED"><strong>HẾT</strong></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="centered-cell"><input type="checkbox" disabled></td>                                                
+                                            <td class="centered-cell">05</td>
+                                            <td class="centered-cell">320201</td>
+                                            <td class="centered-cell">Máy ảnh Fuji</td>
+                                            <td class="centered-cell" style="color:red"><strong>HẾT</strong></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="centered-cell"><input type="checkbox"></td>                                                
+                                            <td class="centered-cell">06</td>
+                                            <td class="centered-cell">420201</td>
+                                            <td class="centered-cell">Cassette Sony</td>
+                                            <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="centered-cell"><input type="checkbox"></td>                                                
+                                            <td class="centered-cell">07</td>
+                                            <td class="centered-cell">120214</td>
+                                            <td class="centered-cell">Micro không dây 03</td>
+                                            <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="centered-cell"><input type="checkbox" disabled></td>                                                
+                                            <td class="centered-cell">08</td>
+                                            <td class="centered-cell">420212</td>
+                                            <td class="centered-cell">Cassette Sony</td>
+                                            <td class="centered-cell" style="color:red"><strong>HẾT</strong></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="centered-cell"><input type="checkbox"></td>                                                
+                                            <td class="centered-cell">09</td>
+                                            <td class="centered-cell">420213</td>
+                                            <td class="centered-cell">Cassette TQ</td>
+                                            <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="centered-cell"><input type="checkbox"></td>                                                
+                                            <td class="centered-cell">10</td>
+                                            <td class="centered-cell">520221</td>
+                                            <td class="centered-cell">Tivi LG</td>
+                                            <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="centered-cell"><input type="checkbox" disabled></td>                                                
+                                            <td class="centered-cell">11</td>
+                                            <td class="centered-cell">520222</td>
+                                            <td class="centered-cell">Tivi Samsung</td>
+                                            <td class="centered-cell" style="color:red"><strong>HẾT</strong></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="centered-cell"><input type="checkbox"></td>                                                
+                                            <td class="centered-cell">12</td>
+                                            <td class="centered-cell">420224</td>
+                                            <td class="centered-cell">Cassette Sony</td>
+                                            <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="centered-cell"><input type="checkbox" disabled></td>                                                
+                                            <td class="centered-cell">13</td>
+                                            <td class="centered-cell">120235</td>
+                                            <td class="centered-cell">Micro không dây 03</td>
+                                            <td class="centered-cell" style="color:red"><strong>HẾT</strong></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="centered-cell"><input type="checkbox"></td>                                                
+                                            <td class="centered-cell">14</td>
+                                            <td class="centered-cell">420236</td>
+                                            <td class="centered-cell">Cassette Sony</td>
+                                            <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="centered-cell"><input type="checkbox"></td>                                                
+                                            <td class="centered-cell">15</td>
+                                            <td class="centered-cell">620231</td>
+                                            <td class="centered-cell">Quạt đứng</td>
+                                            <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="centered-cell"><input type="checkbox"></td>                                                
+                                            <td class="centered-cell">16</td>
+                                            <td class="centered-cell">620232</td>
+                                            <td class="centered-cell">Quạt đứng</td>
+                                            <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="centered-cell"><input type="checkbox"></td>                                                
+                                            <td class="centered-cell">17</td>
+                                            <td class="centered-cell">620233</td>
+                                            <td class="centered-cell">Quạt đứng</td>
+                                            <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="centered-cell"><input type="checkbox"></td>                                                
+                                            <td class="centered-cell">18</td>
+                                            <td class="centered-cell">620234</td>
+                                            <td class="centered-cell">Quạt đứng</td>
+                                            <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="pagination">
+                                <button id="prevPage"><i class="fas fa-chevron-left"></i></button>
+                                <div id="pageNumbers" class="page-numbers"></div>
+                                <button id="nextPage"><i class="fas fa-chevron-right"></i></button>
+                                <button id="muonButton" class="btn btn-success" disabled>Mượn</button>
+                            </div>
+                            <div id="muonForm" style="display: none;">
+                                <button id="closeFormButton" class="btn-close">X</button>
+                                <form id="muonFormContent">
+                                    <div class="form-group">
+                                        <label for="maThanhVien">Mã Thành Viên:</label>
+                                        <input type="text" class="form-control" id="maThanhVien" placeholder="Nhập mã thành viên">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="hoTen">Họ và Tên:</label>
+                                        <input type="text" class="form-control" id="hoTen" placeholder="Nhập họ và tên">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="maThietBiMuon">Mã Các Thiết Bị Mượn:</label>
+                                        <input type="text" class="form-control" id="maThietBiMuon" value="" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ngayMuon">Ngày Mượn:</label>
+                                        <input type="date" class="form-control" id="ngayMuon">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ngayTra">Ngày Trả:</label>
+                                        <input type="date" class="form-control" id="ngayTra">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Gửi Đăng Ký</button>
+                                </form>
+                            </div>
                         </div>
-                    </li>
-
-                </ul>
-
-            </nav>
-            <!-- End of Topbar -->
-
-            <!-- Begin Page Content -->
-            <div class="container-fluid">
-                <!-- Content Row -->
-                <!-- Area Chart -->
-                <!-- Card Header - Dropdown -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">ĐẶT CHỖ MƯỢN THIẾT BỊ</h6>
                     </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                <tr>
-                                    <th class="centered-cell">Chọn</th>
-                                    <th class="centered-cell">STT</th>
-                                    <th class="centered-cell">Mã Thiết Bị</th>
-                                    <th class="centered-cell">Tên Thiết Bị</th>
-                                    <th class="centered-cell">Tình Trạng</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td class="centered-cell"><input type="checkbox"></td>
-                                    <td class="centered-cell">01</td>
-                                    <td class="centered-cell">120191</td>
-                                    <td class="centered-cell">Micro không dây 01</td>
-                                    <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
-                                </tr>
+                </div>                                                                                                <!-- /.container-fluid -->
+            </div>
+            <!-- End of Main Content -->
 
-                                <tr>
-                                    <td class="centered-cell"><input type="checkbox"></td>
-                                    <td class="centered-cell">02</td>
-                                    <td class="centered-cell">120192</td>
-                                    <td class="centered-cell">Micro có dây 01</td>
-                                    <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="centered-cell"><input type="checkbox"></td>
-                                    <td class="centered-cell">03</td>
-                                    <td class="centered-cell">220191</td>
-                                    <td class="centered-cell">Máy chiếu Panasonic</td>
-                                    <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="centered-cell"><input type="checkbox" disabled></td>
-                                    <td class="centered-cell">04</td>
-                                    <td class="centered-cell">120203</td>
-                                    <td class="centered-cell">Micro không dây 02</td>
-                                    <td class="centered-cell" style="color:RED"><strong>HẾT</strong></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="centered-cell"><input type="checkbox" disabled></td>
-                                    <td class="centered-cell">05</td>
-                                    <td class="centered-cell">320201</td>
-                                    <td class="centered-cell">Máy ảnh Fuji</td>
-                                    <td class="centered-cell" style="color:red"><strong>HẾT</strong></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="centered-cell"><input type="checkbox"></td>
-                                    <td class="centered-cell">06</td>
-                                    <td class="centered-cell">420201</td>
-                                    <td class="centered-cell">Cassette Sony</td>
-                                    <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="centered-cell"><input type="checkbox"></td>
-                                    <td class="centered-cell">07</td>
-                                    <td class="centered-cell">120214</td>
-                                    <td class="centered-cell">Micro không dây 03</td>
-                                    <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="centered-cell"><input type="checkbox" disabled></td>
-                                    <td class="centered-cell">08</td>
-                                    <td class="centered-cell">420212</td>
-                                    <td class="centered-cell">Cassette Sony</td>
-                                    <td class="centered-cell" style="color:red"><strong>HẾT</strong></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="centered-cell"><input type="checkbox"></td>
-                                    <td class="centered-cell">09</td>
-                                    <td class="centered-cell">420213</td>
-                                    <td class="centered-cell">Cassette TQ</td>
-                                    <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="centered-cell"><input type="checkbox"></td>
-                                    <td class="centered-cell">10</td>
-                                    <td class="centered-cell">520221</td>
-                                    <td class="centered-cell">Tivi LG</td>
-                                    <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="centered-cell"><input type="checkbox" disabled></td>
-                                    <td class="centered-cell">11</td>
-                                    <td class="centered-cell">520222</td>
-                                    <td class="centered-cell">Tivi Samsung</td>
-                                    <td class="centered-cell" style="color:red"><strong>HẾT</strong></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="centered-cell"><input type="checkbox"></td>
-                                    <td class="centered-cell">12</td>
-                                    <td class="centered-cell">420224</td>
-                                    <td class="centered-cell">Cassette Sony</td>
-                                    <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="centered-cell"><input type="checkbox" disabled></td>
-                                    <td class="centered-cell">13</td>
-                                    <td class="centered-cell">120235</td>
-                                    <td class="centered-cell">Micro không dây 03</td>
-                                    <td class="centered-cell" style="color:red"><strong>HẾT</strong></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="centered-cell"><input type="checkbox"></td>
-                                    <td class="centered-cell">14</td>
-                                    <td class="centered-cell">420236</td>
-                                    <td class="centered-cell">Cassette Sony</td>
-                                    <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="centered-cell"><input type="checkbox"></td>
-                                    <td class="centered-cell">15</td>
-                                    <td class="centered-cell">620231</td>
-                                    <td class="centered-cell">Quạt đứng</td>
-                                    <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="centered-cell"><input type="checkbox"></td>
-                                    <td class="centered-cell">16</td>
-                                    <td class="centered-cell">620232</td>
-                                    <td class="centered-cell">Quạt đứng</td>
-                                    <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="centered-cell"><input type="checkbox"></td>
-                                    <td class="centered-cell">17</td>
-                                    <td class="centered-cell">620233</td>
-                                    <td class="centered-cell">Quạt đứng</td>
-                                    <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="centered-cell"><input type="checkbox"></td>
-                                    <td class="centered-cell">18</td>
-                                    <td class="centered-cell">620234</td>
-                                    <td class="centered-cell">Quạt đứng</td>
-                                    <td class="centered-cell" style="color:green"><strong>CÒN</strong></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="pagination">
-                            <button id="prevPage"><i class="fas fa-chevron-left"></i></button>
-                            <div id="pageNumbers" class="page-numbers"></div>
-                            <button id="nextPage"><i class="fas fa-chevron-right"></i></button>
-                            <button id="muonButton" class="btn btn-success" disabled>Mượn</button>
-                        </div>
-                        <div id="muonForm" style="display: none;">
-                            <button id="closeFormButton" class="btn-close">X</button>
-                            <form id="muonFormContent">
-                                <div class="form-group">
-                                    <label for="maThanhVien">Mã Thành Viên:</label>
-                                    <input type="text" class="form-control" id="maThanhVien" placeholder="Nhập mã thành viên">
-                                </div>
-                                <div class="form-group">
-                                    <label for="hoTen">Họ và Tên:</label>
-                                    <input type="text" class="form-control" id="hoTen" placeholder="Nhập họ và tên">
-                                </div>
-                                <div class="form-group">
-                                    <label for="maThietBiMuon">Mã Các Thiết Bị Mượn:</label>
-                                    <input type="text" class="form-control" id="maThietBiMuon" value="" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="ngayMuon">Ngày Mượn:</label>
-                                    <input type="date" class="form-control" id="ngayMuon">
-                                </div>
-                                <div class="form-group">
-                                    <label for="ngayTra">Ngày Trả:</label>
-                                    <input type="date" class="form-control" id="ngayTra">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Gửi Đăng Ký</button>
-                            </form>
-                        </div>
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
                     </div>
                 </div>
-            </div>                                                                                                <!-- /.container-fluid -->
-        </div>
-        <!-- End of Main Content -->
+            </footer>
+            <!-- End of Footer -->
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2021</span>
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
-        </footer>
-        <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
-
-</div>
-<!-- End of Page Wrapper -->
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
-            </div>
         </div>
     </div>
-</div>
 
-<!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="/static/1/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/1/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="/static/1/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="/static/1/js/sb-admin-2.min.js"></script>
 
-<!-- Page level plugins -->
-<script src="vendor/chart.js/Chart.min.js"></script>
-<script src="js/scripts.js"></script>
+    <!-- Page level plugins -->
+    <script src="/static/1/vendor/chart.js/Chart.min.js"></script>
+    <script src="/static/1/js/scripts4.js"></script>
 
 
-<!-- Page level custom scripts -->
-<script src="js/demo/chart-area-demo.js"></script>
-<script src="js/demo/chart-pie-demo.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="/static/1/js/demo/chart-area-demo.js"></script>
+    <script src="/static/1/js/demo/chart-pie-demo.js"></script>
 
 </body>
 

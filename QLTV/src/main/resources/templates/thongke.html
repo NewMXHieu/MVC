@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -12,13 +12,13 @@
     <title>Thống Kê</title>
 
     <!-- Custom fonts for this template-->
-    <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/1/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/static/1/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -31,7 +31,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="datcho.html">
                 <div class="sidebar-brand-text mx-3">Dashboard</div>
             </a>
 
@@ -40,38 +40,33 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="#" th:href="@{user}">
                     <span>User</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="#" th:href="@{datcho}">
                     <span>Trang Đặt Chỗ</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="admin.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="#" th:href="@{qlthanhvien}">
                     <span>Quản Lý Thành Viên</span></a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="quanlytb.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="#" th:href="@{quanlytb}">
                     <span>Quản Lý Thiết Bị</span></a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="xulyvp.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="#" th:href="@{xulyvp}">
                     <span>Xử Lý Vi Phạm</span></a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="thongke.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="#" th:href="@{thongke}">
                     <span>Thống Kê</span></a>
             </li>
+
 
 
             <!-- Divider -->
@@ -202,7 +197,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/img/undraw_profile_1.svg"
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -214,7 +209,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/img/undraw_profile_2.svg"
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
                                             alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -226,7 +221,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/img/undraw_profile_3.svg"
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
                                             alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
@@ -260,7 +255,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle"
-                                    src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/img/undraw_profile.svg">
+                                    src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -402,22 +397,22 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/vendor/jquery/jquery.min.js"></script>
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/1/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/1/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/static/1/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/js/sb-admin-2.min.js"></script>
+    <script src="/static/1/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/vendor/chart.js/Chart.min.js"></script>
+    <script src="/static/1/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/js/demo/chart-area-demo.js"></script>
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/js/demo/chart-pie-demo.js"></script>
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/js/demo/chart-bar-demo.js"></script>
+    <script src="/static/1/js/demo/chart-area-demo.js"></script>
+    <script src="/static/1/js/demo/chart-pie-demo.js"></script>
+    <script src="/static/1/js/demo/chart-bar-demo.js"></script>
 
 </body>
 

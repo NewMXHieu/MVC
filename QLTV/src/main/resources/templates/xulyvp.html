@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -12,14 +12,15 @@
     <title>Xử Lý Vi Phạm</title>
 
     <!-- Custom fonts for this template-->
-    <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/1/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="../static/css/styles3.css" rel="stylesheet">
+    <link href="/static/1/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/static/1/css/style3.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -30,7 +31,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="datcho.html">
                 <div class="sidebar-brand-text mx-3">Dashboard</div>
             </a>
 
@@ -39,38 +40,33 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="#" th:href="@{user}">
                     <span>User</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="#" th:href="@{datcho}">
                     <span>Trang Đặt Chỗ</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="admin.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="#" th:href="@{qlthanhvien}">
                     <span>Quản Lý Thành Viên</span></a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="quanlytb.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="#" th:href="@{quanlytb}">
                     <span>Quản Lý Thiết Bị</span></a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="xulyvp.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="#" th:href="@{xulyvp}">
                     <span>Xử Lý Vi Phạm</span></a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="thongke.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="#" th:href="@{thongke}">
                     <span>Thống Kê</span></a>
             </li>
+
 
 
             <!-- Divider -->
@@ -143,7 +139,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">ADMIN</span>
                                 <img class="img-profile rounded-circle"
-                                    src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/img/undraw_profile.svg">
+                                    src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -198,93 +194,94 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>                                                
-                                            <td class="centered-cell">01</td>
-                                            <td class="centered-cell">10</td>
-                                            <td class="centered-cell">1121110001</td>
-                                            <td class="centered-cell">Khóa thẻ 1 tháng</td>
-                                            <td class="centered-cell"></td>
-                                            <td class="centered-cell">2/1/24 10:00</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoàn Tất Xử Lý</strong></td>
-                                        </tr>
+                                    <tr>
+                                        <td class="centered-cell"><input type="checkbox"></td>
+                                        <td class="centered-cell">01</td>
+                                        <td class="centered-cell">10</td>
+                                        <td class="centered-cell">1121110001</td>
+                                        <td class="centered-cell">Khóa thẻ 1 tháng</td>
+                                        <td class="centered-cell"></td>
+                                        <td class="centered-cell">2/1/24 10:00</td>
+                                        <td class="centered-cell" style="color:green"><strong>Hoàn Tất Xử Lý</strong></td>
+                                    </tr>
 
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>                                                
-                                            <td class="centered-cell">02</td>
-                                            <td class="centered-cell">11</td>
-                                            <td class="centered-cell">1121130012</td>
-                                            <td class="centered-cell">Khóa thẻ 1 tháng</td>
-                                            <td class="centered-cell"></td>
-                                            <td class="centered-cell">2/2/24 10:59</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoàn Tất Xử Lý</strong></td>
-                                        </tr>
+                                    <tr>
+                                        <td class="centered-cell"><input type="checkbox"></td>
+                                        <td class="centered-cell">02</td>
+                                        <td class="centered-cell">11</td>
+                                        <td class="centered-cell">1121130012</td>
+                                        <td class="centered-cell">Khóa thẻ 1 tháng</td>
+                                        <td class="centered-cell"></td>
+                                        <td class="centered-cell">2/2/24 10:59</td>
+                                        <td class="centered-cell" style="color:green"><strong>Hoàn Tất Xử Lý</strong></td>
+                                    </tr>
 
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>                                                
-                                            <td class="centered-cell">03</td>
-                                            <td class="centered-cell">12</td>
-                                            <td class="centered-cell">1121100003</td>
-                                            <td class="centered-cell">Khóa thẻ 1 tháng</td>
-                                            <td class="centered-cell"></td>
-                                            <td class="centered-cell">2/3/24 10:58</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoàn Tất Xử Lý</strong></td>
-                                        </tr>
+                                    <tr>
+                                        <td class="centered-cell"><input type="checkbox"></td>
+                                        <td class="centered-cell">03</td>
+                                        <td class="centered-cell">12</td>
+                                        <td class="centered-cell">1121100003</td>
+                                        <td class="centered-cell">Khóa thẻ 1 tháng</td>
+                                        <td class="centered-cell"></td>
+                                        <td class="centered-cell">2/3/24 10:58</td>
+                                        <td class="centered-cell" style="color:green"><strong>Hoàn Tất Xử Lý</strong></td>
+                                    </tr>
 
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>                                                
-                                            <td class="centered-cell">04</td>
-                                            <td class="centered-cell">13</td>
-                                            <td class="centered-cell">1120380064</td>
-                                            <td class="centered-cell">Khóa thẻ 2 tháng</td>
-                                            <td class="centered-cell"></td>
-                                            <td class="centered-cell">3/4/24 10:58</td>
-                                            <td class="centered-cell" style="color:red"><strong>Đang Xử Lý</strong></td>
-                                        </tr>
+                                    <tr>
+                                        <td class="centered-cell"><input type="checkbox"></td>
+                                        <td class="centered-cell">04</td>
+                                        <td class="centered-cell">13</td>
+                                        <td class="centered-cell">1120380064</td>
+                                        <td class="centered-cell">Khóa thẻ 2 tháng</td>
+                                        <td class="centered-cell"></td>
+                                        <td class="centered-cell">3/4/24 10:58</td>
+                                        <td class="centered-cell" style="color:red"><strong>Đang Xử Lý</strong></td>
+                                    </tr>
 
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>                                                
-                                            <td class="centered-cell">05</td>
-                                            <td class="centered-cell">14</td>
-                                            <td class="centered-cell">1121110001</td>
-                                            <td class="centered-cell">Bồi thường</td>
-                                            <td class="centered-cell">300000</td>
-                                            <td class="centered-cell">3/5/24 10:58</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoàn Tất Xử Lý</strong></td>
-                                        </tr>
+                                    <tr>
+                                        <td class="centered-cell"><input type="checkbox"></td>
+                                        <td class="centered-cell">05</td>
+                                        <td class="centered-cell">14</td>
+                                        <td class="centered-cell">1121110001</td>
+                                        <td class="centered-cell">Bồi thường</td>
+                                        <td class="centered-cell">300000</td>
+                                        <td class="centered-cell">3/5/24 10:58</td>
+                                        <td class="centered-cell" style="color:green"><strong>Hoàn Tất Xử Lý</strong></td>
+                                    </tr>
 
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>                                                
-                                            <td class="centered-cell">06</td>
-                                            <td class="centered-cell">15</td>
-                                            <td class="centered-cell">1121130012</td>
-                                            <td class="centered-cell">Bồi thường</td>
-                                            <td class="centered-cell">200000</td>
-                                            <td class="centered-cell">3/6/24 10:58</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoàn Tất Xử Lý</strong></td>
-                                        </tr>
+                                    <tr>
+                                        <td class="centered-cell"><input type="checkbox"></td>
+                                        <td class="centered-cell">06</td>
+                                        <td class="centered-cell">15</td>
+                                        <td class="centered-cell">1121130012</td>
+                                        <td class="centered-cell">Bồi thường</td>
+                                        <td class="centered-cell">200000</td>
+                                        <td class="centered-cell">3/6/24 10:58</td>
+                                        <td class="centered-cell" style="color:green"><strong>Hoàn Tất Xử Lý</strong></td>
+                                    </tr>
 
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>                                                
-                                            <td class="centered-cell">07</td>
-                                            <td class="centered-cell">16</td>
-                                            <td class="centered-cell">1121100003</td>
-                                            <td class="centered-cell">Khóa thẻ 1 tháng và bồi thường</td>
-                                            <td class="centered-cell">100000</td>
-                                            <td class="centered-cell">3/7/24 10:58</td>
-                                            <td class="centered-cell" style="color:green"><strong>Hoàn Tất Xử Lý</strong></td>
-                                        </tr>
+                                    <tr>
+                                        <td class="centered-cell"><input type="checkbox"></td>
+                                        <td class="centered-cell">07</td>
+                                        <td class="centered-cell">16</td>
+                                        <td class="centered-cell">1121100003</td>
+                                        <td class="centered-cell">Khóa thẻ 1 tháng và bồi thường</td>
+                                        <td class="centered-cell">100000</td>
+                                        <td class="centered-cell">3/7/24 10:58</td>
+                                        <td class="centered-cell" style="color:green"><strong>Hoàn Tất Xử Lý</strong></td>
+                                    </tr>
 
-                                        <tr>
-                                            <td class="centered-cell"><input type="checkbox"></td>                                                
-                                            <td class="centered-cell">08</td>
-                                            <td class="centered-cell">18</td>
-                                            <td class="centered-cell">11220900010</td>
-                                            <td class="centered-cell">Khóa thẻ 2 tháng</td>
-                                            <td class="centered-cell"></td>
-                                            <td class="centered-cell">3/9/24 10:58</td>
-                                            <td class="centered-cell" style="color:red"><strong>Đang Xử Lý</strong></td>
-                                        </tr>
+                                    <tr>
+                                        <td class="centered-cell"><input type="checkbox"></td>
+                                        <td class="centered-cell">08</td>
+                                        <td class="centered-cell">18</td>
+                                        <td class="centered-cell">11220900010</td>
+                                        <td class="centered-cell">Khóa thẻ 2 tháng</td>
+                                        <td class="centered-cell"></td>
+                                        <td class="centered-cell">3/9/24 10:58</td>
+                                        <td class="centered-cell" style="color:red"><strong>Đang Xử Lý</strong></td>
+                                    </tr>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -293,33 +290,34 @@
                                 <div id="pageNumbers" class="page-numbers"></div>
                                 <button id="nextPage"><i class="fas fa-chevron-right"></i></button>
                                 <button id="TbButton" class="btn btn-success" disabled>Sửa Thông Tin</button>
+                                <button id="addViolationButton" class="btn btn-primary mr-2">Thêm Vi Phạm</button>
                             </div>
                             <div id="upTbButton" style="display: none;">
                                 <button id="closeFormButton" class="btn-close">X</button>
                                 <form id="upTbButtonContent">
                                     <div class="form-group">
                                         <label for="maThanhVien">Mã Xử Lý</label>
-                                        <input type="text" class="form-control" id="maXuLy" placeholder="Nhập mã thiết bị">
+                                        <input type="text" class="form-control" id="maTvien" placeholder="Nhập mã thành viên">
                                     </div>
                                     <div class="form-group">
                                         <label for="hoTen">Mã Thành Viên</label>
-                                        <input type="text" class="form-control" id="maThanhVien" placeholder="Nhập tên thiết bị">
+                                        <input type="text" class="form-control" id="hoTen" placeholder="Nhập họ tên">
                                     </div>
                                     <div class="form-group">
-                                        <label for="moTa">Hình Thức Xử Lý</label>
-                                        <input type="text" class="form-control" id="hinhThuc" placeholder="Nhập mô tả thiết bị">
+                                        <label for="hinhThucxl">Hình Thức Xử Lý</label>
+                                        <input type="text" class="form-control" id="hinhThucxl" placeholder="Nhập hình thức xử lý ">
                                     </div>
                                     <div class="form-group">
-                                        <label for="moTa">Số Tiền (Nếu Có)</label>
-                                        <input type="text" class="form-control" id="soTien" placeholder="Nhập mô tả thiết bị">
+                                        <label for="soTienPhat">Số Tiền (Nếu Có)</label>
+                                        <input type="text" class="form-control" id="soTienPhat" placeholder="Nhập số tiền phạt">
                                     </div>
                                     <div class="form-group">
-                                        <label for="moTa">Ngày Xử Lý</label>
-                                        <input type="text" class="form-control" id="ngayXuLy" placeholder="Nhập mô tả thiết bị">
+                                        <label for="ngayXuLyvp">Ngày Xử Lý</label>
+                                        <input type="text" class="form-control" id="ngayXuLyvp" placeholder="Nhập ngày xử lý">
                                     </div>
                                     <div class="form-group">
-                                        <label for="tinhTrang">Tình Trạng</label>
-                                        <select class="form-control" id="tinhTrang">
+                                        <label for="tinhTrangxl">Tình Trạng</label>
+                                        <select class="form-control" id="tinhTrangxl">
                                             <option value="hong">Hoàn Thành Xử Lý</option>
                                             <option value="sanSang">Đang Xử Ly</option>
                                         </select>
@@ -327,6 +325,40 @@
                                     <button type="submit" class="btn btn-primary">Lưu</button>
                                 </form>
                                 
+                            </div>
+                            <div id="addViolationForm" style="display: none;">
+                                <button id="closeAddViolationFormButton" class="btn-close">X</button>
+                                <form id="addViolationFormContent">
+                                    <div class="form-group">
+                                        <label for="maXuLy">Mã Xử Lý</label>
+                                        <input type="text" class="form-control" id="maXuLy" placeholder="Nhập mã xử lý">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="maThanhVien">Mã Thành Viên</label>
+                                        <input type="text" class="form-control" id="maThanhVien" placeholder="Nhập mã thành viên">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="hinhThuc">Hình Thức Xử Lý</label>
+                                        <input type="text" class="form-control" id="hinhThuc" placeholder="Nhập hình thức xử lý">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="soTien">Số Tiền (Nếu Có)</label>
+                                        <input type="text" class="form-control" id="soTien" placeholder="Nhập số tiền">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ngayXuLy">Ngày Xử Lý</label>
+                                        <input type="text" class="form-control" id="ngayXuLy" placeholder="Nhập ngày xử lý">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tinhTrang">Trạng Thái Xử Lý</label>
+                                        <select class="form-control" id="tinhTrang">
+                                            <option value="hoanThanh">Hoàn Thành</option>
+                                            <option value="dangXuLy">Đang Xử Lý</option>
+                                        </select>
+                                    </div>
+                                    <!-- Thay nút "Lưu" thành nút "Thêm" -->
+                                    <button type="submit" class="btn btn-primary">Thêm</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -376,23 +408,23 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/vendor/jquery/jquery.min.js"></script>
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/1/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/1/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/static/1/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/js/sb-admin-2.min.js"></script>
+    <script src="/static/1/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/vendor/chart.js/Chart.min.js"></script>
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/js/scripts3.js"></script>
+    <script src="/static/1/vendor/chart.js/Chart.min.js"></script>
+    <script src="/static/1/js/scripts3.js"></script>
 
 
     <!-- Page level custom scripts -->
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/js/demo/chart-area-demo.js"></script>
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/js/demo/chart-pie-demo.js"></script>
+    <script src="/static/1/js/demo/chart-area-demo.js"></script>
+    <script src="/static/1/js/demo/chart-pie-demo.js"></script>
 
 </body>
 

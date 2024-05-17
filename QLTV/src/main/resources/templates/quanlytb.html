@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -12,14 +12,15 @@
     <title>Quản Lý Thiết Bị</title>
 
     <!-- Custom fonts for this template-->
-    <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/1/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="../static/css/style2.css" rel="stylesheet">
+    <link href="/static/1/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/static/1/css/style5.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -30,7 +31,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="datcho.html">
                 <div class="sidebar-brand-text mx-3">Dashboard</div>
             </a>
 
@@ -39,36 +40,30 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="#" th:href="@{user}">
                     <span>User</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="#" th:href="@{datcho}">
                     <span>Trang Đặt Chỗ</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="admin.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="#" th:href="@{qlthanhvien}">
                     <span>Quản Lý Thành Viên</span></a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="quanlytb.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="#" th:href="@{quanlytb}">
                     <span>Quản Lý Thiết Bị</span></a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="xulyvp.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="#" th:href="@{xulyvp}">
                     <span>Xử Lý Vi Phạm</span></a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="thongke.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="#" th:href="@{thongke}">
                     <span>Thống Kê</span></a>
             </li>
 
@@ -143,7 +138,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">ADMIN</span>
                                 <img class="img-profile rounded-circle"
-                                    src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/img/undraw_profile.svg">
+                                    src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -356,16 +351,18 @@
                                 <div id="pageNumbers" class="page-numbers"></div>
                                 <button id="nextPage"><i class="fas fa-chevron-right"></i></button>
                                 <button id="TbButton" class="btn btn-success" disabled>Sửa Thông Tin</button>
+                                <button id="addDeviceButton" class="btn btn-primary">Thêm Thiết Bị</button>
+                                <button id="deleteTbButton" class="btn btn-danger" disabled>Xoá Thiết Bị</button>
                             </div>
                             <div id="upTbButton" style="display: none;">
                                 <button id="closeFormButton" class="btn-close">X</button>
                                 <form id="upTbButtonContent">
                                     <div class="form-group">
-                                        <label for="maThanhVien">Mã Thiết Bị:</label>
+                                        <label for="maThietBi">Mã Thiết Bị:</label>
                                         <input type="text" class="form-control" id="maThietBi" placeholder="Nhập mã thiết bị">
                                     </div>
                                     <div class="form-group">
-                                        <label for="hoTen">Tên Thiết Bị</label>
+                                        <label for="tenThietBi">Tên Thiết Bị</label>
                                         <input type="text" class="form-control" id="tenThietBi" placeholder="Nhập tên thiết bị">
                                     </div>
                                     <div class="form-group">
@@ -381,8 +378,32 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary">Lưu</button>
                                 </form>
-                                
                             </div>
+                            <div id="addTbButtonContent">
+                                <button id="closeAddFormButton" class="btn-close">X</button>
+                                <form id="addTbForm">
+                                    <div class="form-group">
+                                        <label for="tmaThietBi">Mã Thiết Bị:</label>
+                                        <input type="text" class="form-control" id="tmaThietBi" placeholder="Nhập mã thiết bị">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ttenThietBi">Tên Thiết Bị</label>
+                                        <input type="text" class="form-control" id="ttenThietBi" placeholder="Nhập tên thiết bị">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="moTa">Mô Tả</label>
+                                        <input type="text" class="form-control" id="tmoTa" placeholder="Nhập mô tả thiết bị">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tinhTrang">Tình Trạng</label>
+                                        <select class="form-control" id="ttinhTrang">
+                                            <option value="hong">Hỏng</option>
+                                            <option value="sanSang">Sẵn Sàng</option>
+                                        </select>
+                                    </div>                                    <button type="submit" class="btn btn-primary">Lưu</button>
+                                </form>
+                            </div>
+
                         </div>
                     </div>
                 </div>                                                                                                <!-- /.container-fluid -->
@@ -431,23 +452,23 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/vendor/jquery/jquery.min.js"></script>
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/1/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/1/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/static/1/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/js/sb-admin-2.min.js"></script>
+    <script src="/static/1/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/vendor/chart.js/Chart.min.js"></script>
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/js/scripts2.js"></script>
+    <script src="/static/1/vendor/chart.js/Chart.min.js"></script>
+    <script src="/static/1/js/scripts2.js"></script>
 
 
     <!-- Page level custom scripts -->
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/js/demo/chart-area-demo.js"></script>
-    <script src="../../../../../../../Downloads/QuangMinh/QuangMinh/startbootstrap-sb-admin-2-gh-pages/js/demo/chart-pie-demo.js"></script>
+    <script src="/static/1/js/demo/chart-area-demo.js"></script>
+    <script src="/static/1/js/demo/chart-pie-demo.js"></script>
 
 </body>
 
